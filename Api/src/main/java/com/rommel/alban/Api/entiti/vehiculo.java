@@ -1,23 +1,24 @@
 package com.rommel.alban.Api.entiti;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Objects;
-import java.util.UUID;
 
-  @Entity(name = "vehiculo")
+  @Entity
 public class vehiculo {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    private String id;
+    private int id;
 
     private String marca, modelo;
     private boolean precio;
 
 
 
-    public vehiculo (String id, String marca, String modelo, boolean precio) {
+    public vehiculo (int id, String marca, String modelo, boolean precio) {
       this.id = id;
       this.marca = marca;
       this.modelo = modelo;
@@ -40,11 +41,11 @@ public class vehiculo {
       return Objects.hash(id, marca, modelo, precio);
     }
 
-    public String getId() {
+    public int getId() {
       return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
       this.id = id;
     }
 
@@ -64,12 +65,15 @@ public class vehiculo {
       this.modelo = modelo;
     }
 
-    public boolean isPrecio() {
-      return precio;
-    }
+      public boolean isPrecio() {
+          return precio;
+      }
 
-    public void setPrecio(boolean precio) {
+      public void setPrecio(boolean precio) {
       this.precio = precio;
     }
+
+
+
   }
 
